@@ -19,18 +19,9 @@ export async function getPokemonsApi() {
 
 
 export async function getPokemonByIdOrName(idOrName) {
-  try {
-    const url = `${API_HOST}/pokemon/${idOrName.toLowerCase()}`;
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error("Pokémon no encontrado");
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error al obtener el Pokémon:", error);
-    throw error;
-  }
+  const idOrNameStr = String(idOrName).toLowerCase().trim();
+  const url = `${API_HOST}/pokemon/${idOrNameStr}`;
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("Pokémon no encontrado");
+  return await response.json();
 }

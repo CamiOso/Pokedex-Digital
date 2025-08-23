@@ -18,9 +18,6 @@ header {
     padding: 2rem 1rem;
     background-color: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
 }
 
 .logo-pokedex img {
@@ -41,12 +38,13 @@ header {
 }
 
 .barra-busqueda {
+    width: 97vw;
+    max-width: 97vw;
     display: flex;
     justify-content: center;
-    gap: 0.5rem;
     margin: 1.5rem 0;
-    width: 100%;
-    max-width: 800px;
+    padding: 0 2vw;
+    box-sizing: border-box;
 }
 
 .formulario-busqueda {
@@ -54,15 +52,26 @@ header {
     align-items: center;
     gap: 0.5rem;
     width: 100%;
-    max-width: 600px;
+    max-width: 100vw;
 }
+    .formulario-busqueda {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 8px;
+    }
 
 #entrada-busqueda {
-    flex: 1;
+    flex: 1 1 auto;
+    min-width: 200px;
+    width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
+    box-sizing: border-box;
 }
 
 .boton {
@@ -77,12 +86,19 @@ header {
 .boton.buscar {
     background-color: #2196F3;
     color: white;
+    margin-left: 8px;
 }
 
 .boton.aleatorio {
     background-color: #FFC107;
     color: black;
 }
+    .boton.aleatorio {
+        background-color: #FFC107;
+        color: black;
+        margin-left: 0.5rem;
+        margin-right: 8px;
+    }
 
 .boton:hover {
     transform: translateY(-2px);

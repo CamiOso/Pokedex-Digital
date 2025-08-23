@@ -1,3 +1,9 @@
+// Obtener detalles de un movimiento desde la API
+export async function getMoveDetails(url) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error('No se pudo obtener el movimiento');
+  return await response.json();
+}
 import { API_HOST } from "./helpers/constants.js";
 
 export async function getPokemonsApi() {

@@ -1,5 +1,5 @@
 import { getPokemonsApi } from './app.js';
-import { getPokemonByIdOrName } from './app.js';
+import { getPokemonByIdOrName, getMoveDetails } from './app.js';
 /*
 async function init() {
   console.log("Iniciando Pokédex...");
@@ -47,7 +47,7 @@ const nombrePokemon = document.querySelector('.nombre-pokemon');
 const idPokemon = document.querySelector('.id-pokemon');
 const imagenPokemon = document.getElementById('imagen-pokemon');
 const tiposPokemon = document.querySelector('.tipos-pokemon');
-const listaMovimientos = document.querySelector('.lista-movimientos-scroll');
+const listaMovimientos = document.querySelector('.lista-movimientos');
 const progresoBars = document.querySelectorAll('.progreso');
 const valorStats = document.querySelectorAll('.valor');
 const botonAnterior = document.querySelector('.anterior');

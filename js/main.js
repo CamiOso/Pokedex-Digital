@@ -137,6 +137,45 @@ const buscarPokemon = async (idOrName) => {
   }
 };
 
+const handleFilterByType = async (typeName) => {
+  try {
+    // Mostrar mensaje de carga
+    nombrePokemon.textContent = 'Cargando...';
+    idPokemon.textContent = '';
+    imagenPokemon.src = '';
+    tiposPokemon.innerHTML = '';
+    listaMovimientos.innerHTML = '<p>Filtrando por tipo...</p>';
+
+    const response = await fetch(`https://pokeapi.co/api/v2/type/${typeName}`);
+    if (!response.ok) throw new Error('Tipo no encontrado');
+
+    const data = await response.json();
+    const pokemons = data.pokemon.map(p => p.pokemon);
+
+    if (pokemons.length > 0) {
+      const firstPokemonUrl = pokemons[0].url;
+      const id = firstPokemonUrl.split('/').filter(Boolean).pop();
+      buscarPokemon(id);
+    } else {
+      alert(`No hay Pokémon disponibles para el tipo "${capitalize(typeName)}".`);
+    }
+  } catch (error) {
+    console.error("Error al filtrar por tipo:", error);
+    alert("Hubo un error al cargar Pokémon de este tipo.");
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
 
 formulario.addEventListener('submit', e => {
   e.preventDefault();
@@ -156,6 +195,22 @@ botonAnterior.addEventListener('click', () => {
 botonSiguiente.addEventListener('click', () => {
   buscarPokemon(currentId + 1);
 });
+
+
+//Escuchar clics en los botones de tipo
+document.querySelectorAll('.boton-tipo').forEach(boton => {
+  boton.addEventListener('click', (e) => {
+    const typeId = e.target.id;
+
+    if (typeId === 'ver-todos') {
+      buscarPokemon(1);
+      return;
+    }
+
+    handleFilterByType(typeId);
+  });
+});
+
 
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -309,3 +309,80 @@ header {
 .navegacion-pokemon .boton:hover {
     background-color: #FFD700;
 }
+
+@media (min-width: 768px) {
+    .logo-pokedex img {
+        width: 120px;
+    }
+
+    .encabezado-titulo h1 {
+        font-size: 2.5rem;
+    }
+
+    .barra-busqueda {
+        padding: 0 2vw;
+    }
+
+    .formulario-busqueda {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .imagen-pokemon img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .contenidos-doble {
+        flex-direction: row;
+    }
+
+    .cuadrícula-estadisticas {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .estadistica-item {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .etiqueta {
+        margin-bottom: 0;
+        flex: 1;
+        text-align: left;
+    }
+
+    .barra-progreso {
+        width: 80%;
+        margin: 0 0.5rem;
+    }
+
+    .lista-movimientos-scroll,
+    .lista-movimientos {
+        max-height: 300px;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .contenedores {
+        padding: 2rem;
+    }
+
+    .formulario-busqueda {
+        max-width: 700px;
+    }
+
+    .cabecera-pokemon {
+        padding: 1.5rem;
+    }
+
+    .nombre-pokemon {
+        font-size: 2rem;
+    }
+
+    .imagen-pokemon img {
+        width: 220px;
+        height: 220px;
+    }
+}

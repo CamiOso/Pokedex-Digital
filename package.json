@@ -1,0 +1,24 @@
+{
+  "name": "pokedex-digital",
+  "version": "1.0.0",
+  "description": "🎮 Pokédex Digital Una Pokédex interactiva construida con HTML, CSS y JavaScript puro (sin frameworks) que permite explorar información detallada de los Pokémon mediante la integración con PokeAPI.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "jsdoc js/app.js js/pokemon.js js/main.js js/helpers/constants.js -d docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CamiOso/Pokedex-Digital.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CamiOso/Pokedex-Digital/issues"
+  },
+  "homepage": "https://github.com/CamiOso/Pokedex-Digital#readme",
+  "devDependencies": {
+    "jsdoc": "^4.0.4"
+  }
+}

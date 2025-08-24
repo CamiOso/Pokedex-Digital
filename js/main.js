@@ -52,6 +52,10 @@ const progresoBars = document.querySelectorAll('.progreso');
 const valorStats = document.querySelectorAll('.valor');
 const botonAnterior = document.querySelector('.anterior');
 const botonSiguiente = document.querySelector('.siguiente');
+const spinner = document.getElementById('spinner');
+const mensajeError = document.getElementById('mensaje-error');
+const textoError = document.getElementById('texto-error');
+const cerrarError = document.getElementById('cerrar-error');
 
 let currentId = 2;
 
@@ -120,6 +124,7 @@ const mostrarPokemon = (data) => {
   idPokemon.textContent = formatId(data.id);
   imagenPokemon.src = data.sprites.front_default;
   imagenPokemon.alt = data.name;
+  imagenPokemon.loading = "lazy";
   renderTipos(data.types);
   renderStats(data.stats);
   renderMoves(data.moves).catch(console.error);
@@ -128,14 +133,23 @@ const mostrarPokemon = (data) => {
 
 // Buscar Pokémon
 const buscarPokemon = async (idOrName) => {
+  spinner.style.display = 'flex';
+  mensajeError.style.display = 'none';
   try {
     const data = await getPokemonByIdOrName(idOrName);
     mostrarPokemon(data);
+    spinner.style.display = 'none';
   } catch (error) {
-    alert("Pokémon no encontrado. Verifica el nombre o ID.");
+    spinner.style.display = 'none';
+    textoError.textContent = "Pokémon no encontrado. Verifica el nombre o ID.";
+    mensajeError.style.display = 'flex';
     console.error(error);
   }
 };
+
+cerrarError.addEventListener('click', () => {
+  mensajeError.style.display = 'none';
+});
 
 const handleFilterByType = async (typeName) => {
   try {

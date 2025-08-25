@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex Digital</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" type="module"></script>
+</head>
+<body>
+       <header>
+   
+        <div class="logo-pokedex">
+            <img src="./img/logo.png" alt="Logo Pokédex">
+        </div>
+
+   
+        <div class="encabezado-titulo">
+            <h1>Pokédex Digital</h1>
+            <p>Descubre el mundo de los Pokémon</p>
+        </div>
+
+        <!-- Barra de búsqueda y botón aleatorio -->
+        <div class="barra-busqueda">
+            <form class="formulario-busqueda">
+                <input type="text" id="entrada-busqueda" placeholder="Buscar Pokémon...">
+                <button type="submit" class="boton buscar">Buscar</button>
+                <button type="button" class="boton aleatorio">Aleatorio</button>
+            </form>
+        </div>
+
+        <!-- Botones de tipo (filtros) -->
+        <nav class="navegacion">
+            <ul class="lista-navegacion">
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo" id="ver-todos">Ver todos</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo normal" id="normal">Normal</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo fuego" id="fire">Fuego</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo agua" id="water">Agua</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo planta" id="grass">Planta</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo electrico" id="electric">Eléctrico</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo hielo" id="ice">Hielo</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo lucha" id="fighting">Lucha</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo veneno" id="poison">Veneno</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo tierra" id="ground">Tierra</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo volador" id="flying">Volador</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo psiquico" id="psychic">Psíquico</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo bicho" id="bug">Bicho</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo roca" id="rock">Roca</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo fantasma" id="ghost">Fantasma</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo oscuro" id="dark">Oscuro</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo dragon" id="dragon">Dragón</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo acero" id="steel">Acero</button>
+                </li>
+                <li class="item-navegacion">
+                    <button class="boton boton-tipo hada" id="fairy">Hada</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="spinner" style="display:none;justify-content:center;align-items:center;margin:2rem 0;">
+            <div class="loader"></div>
+        </div>
+        <div id="mensaje-error" class="popup-error" style="display:none;">
+            <span id="cerrar-error" class="cerrar-error">&times;</span>
+            <div id="texto-error"></div>
+        </div>
+        <div class="contenedores">
+            <div class="tarjeta-pokemon">
+                <div class="cabecera-pokemon">
+                    <h1 class="nombre-pokemon"></h1>
+                    <p class="id-pokemon"></p>
+                </div>
+
+                <div class="imagen-pokemon">
+                    <img src="" alt="Imagen del Pokémon" id="imagen-pokemon">
+                </div>
+
+                <div class="tipos-pokemon">
+                  
+                </div>
+
+                <div class="estadisticas-pokemon">
+                    <h2>Estadísticas</h2>
+                    <div class="cuadrícula-estadisticas">
+                    
+                       <div class="estadistica-item">
+                            <span class="etiqueta">Vida</span>
+                            <div class="barra-progreso">
+                                <div class="progreso" style="width: 0%"></div>
+                            </div>
+                            <span class="valor">0</span>
+                        </div>
+                        <div class="estadistica-item">
+                            <span class="etiqueta">Ataque</span>
+                            <div class="barra-progreso">
+                                <div class="progreso" style="width: 0%"></div>
+                            </div>
+                            <span class="valor">0</span>
+                        </div>
+                        <div class="estadistica-item">
+                            <span class="etiqueta">Defensa</span>
+                            <div class="barra-progreso">
+                                <div class="progreso" style="width: 0%"></div>
+                            </div>
+                            <span class="valor">0</span>
+                        </div>
+                        <div class="estadistica-item">
+                            <span class="etiqueta">At. Especial</span>
+                            <div class="barra-progreso">
+                                <div class="progreso" style="width: 0%"></div>
+                            </div>
+                            <span class="valor">0</span>
+                        </div>
+                        <div class="estadistica-item">
+                            <span class="etiqueta">Def. Especial</span>
+                            <div class="barra-progreso">
+                                <div class="progreso" style="width: 0%"></div>
+                            </div>
+                            <span class="valor">0</span>
+                        </div>
+                        <div class="estadistica-item">
+                            <span class="etiqueta">Velocidad</span>
+                            <div class="barra-progreso">
+                                <div class="progreso" style="width: 0%"></div>
+                            </div>
+                            <span class="valor">0</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="movimientos-pokemon">
+                    <h2>Movimientos</h2>
+                    <div class="lista-movimientos">
+                        <!-- Movimientos se llenarán con JS -->
+                    </div>
+                </div>
+
+                <div class="navegacion-pokemon">
+                    <button class="boton anterior">Anterior</button>
+                    <button class="boton siguiente">Siguiente</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>

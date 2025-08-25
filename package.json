@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "jsdoc js/app.js js/pokemon.js js/main.js js/helpers/constants.js -d docs",
-      "build": "mkdir dist && cp index.html dist/ && cp -r css js dist/"
+     "build": "mkdir dist && cp index.html dist/ && cp -r css js img dist/"
   },
   "repository": {
     "type": "git",
